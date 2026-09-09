@@ -50,15 +50,17 @@ const express = require('express');
 const mongodbConnect = require('./database');
 const Product = require('./model/productModel');
 
-var cors = require('cors')
+const cors = require('cors')
 
 // Adds headers: Access-Control-Allow-Origin: *
-app.use(cors())
+
 
 
 mongodbConnect();
 const app = express();
 app.use(express.json())
+
+app.use(cors())
 
 
 app.get('/', (req, res) => {
